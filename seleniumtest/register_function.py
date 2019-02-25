@@ -5,11 +5,14 @@ import sys
 sys.path.append('D:/test2')
 from seleniumtest.find_element import FindElement
 class RegisterFunction(object):
-    def __init__(self,url):
-        self.driver = self.get_driver(url)
+    def __init__(self,url,i):
+        self.driver = self.get_driver(url,i)
     #获取driver并且打开URL
-    def get_driver(self,url):
-        driver = webdriver.Chrome()
+    def get_driver(self,url,i):
+        if  i == 1:#使用循环判断启动多个浏览器，把i参数化
+            driver = webdriver.Chrome()
+        else:
+            driver = webdriver.Firefox()
         driver.get(url)
         driver.maximize_window()
         return driver
@@ -34,12 +37,21 @@ class RegisterFunction(object):
         self.send_user_info("user_name",user_name_info)
         self.send_user_info("user_password", '111111')
         self.send_user_info("user_yanzhenma",'1111')
-        time.sleep(5)
+        self.get_user_element("user_button").click()#点击定位信息才知道验证码是否正确
+        user_yanzhenme_error = self.get_user_element("user_yanzhenma_error")
+        if user_yanzhenme_error == None:
+            print('pass')
+        else:
+            self.driver.save_screenshot("D:/test2/Screenshot/"+user_name_info+'.png')#错误时，截取屏幕信息
+
+
         self.driver.close()
 
 if __name__ == "__main__":
-    register_function = RegisterFunction('http://www.5itest.cn/register')
-    register_function.main()
+    for i in range(3):
+
+        register_function = RegisterFunction('http://www.5itest.cn/register',i)
+        register_function.main()
 
 
 
