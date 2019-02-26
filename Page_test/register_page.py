@@ -2,7 +2,7 @@
 from Base.find_element import FindElement
 
 class RegisterPage(object):
-    def __init__(self):
-        self.get_element = FindElement
-    def get_email_element(self):
-        return self.base.get_element()
+    def __init__(self,driver):
+        self.fd = FindElement(driver)
+    def get_email_element(self):#读取email的定位信息
+        return self.fd.get_element("user_email")
