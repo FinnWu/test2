@@ -1,9 +1,8 @@
 from selenium import  webdriver
 import random
-import time
 import sys
 sys.path.append('D:/test2')
-from seleniumtest.find_element import FindElement
+from Base.find_element import FindElement
 class RegisterFunction(object):
     def __init__(self,url,i):
         self.driver = self.get_driver(url,i)
