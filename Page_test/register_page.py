@@ -6,3 +6,20 @@ class RegisterPage(object):
         self.fd = FindElement(driver)
     def get_email_element(self):#读取email的定位信息
         return self.fd.get_element("user_email")
+
+    def get_name_element(self):
+        return self.fd.get_element("user_name")
+
+    def get_password_element(self):
+        return self.fd.get_element("user_password")
+
+    def get_code_element(self):
+        return self.fd.get_element("user_code")
+
+    def get_Login_button_element(self):
+        return self.fd.get_element("user_button")
+    def get_user_email_error(self):
+        return  self.fd.get_element("user_email_error")
+    def get_user_name_error(self):
+        return self.fd.get_element("user_name_error")
+
