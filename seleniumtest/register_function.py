@@ -3,6 +3,7 @@ import random
 import sys
 sys.path.append('D:/test2')
 from Base.find_element import FindElement
+
 class RegisterFunction(object):
     def __init__(self,url,i):
         self.driver = self.get_driver(url,i)
@@ -35,9 +36,9 @@ class RegisterFunction(object):
         self.send_user_info("user_email",user_mail)
         self.send_user_info("user_name",user_name_info)
         self.send_user_info("user_password", '111111')
-        self.send_user_info("user_yanzhenma",'1111')
+        self.send_user_info("user_code",'1111')
         self.get_user_element("user_button").click()#点击定位信息才知道验证码是否正确
-        user_yanzhenme_error = self.get_user_element("user_yanzhenma_error")
+        user_yanzhenme_error = self.get_user_element("user_code_error")
         if user_yanzhenme_error == None:
             print('pass')
         else:

@@ -1,12 +1,11 @@
 import configparser
 # import sys
-# sys.path.append(r"D:\test2")
-
+# sys.path.append(r"D://test2")
 class ReadIni(object):
     def __init__(self,file_name=None,node=None):#构建一个函数，判断一个对象，可以为空或者不为空，如果为空的时候，就去给他赋予一个值
 
         if file_name == None:
-            file_name = r"D:\test2\config\LocaElement.ini"
+            file_name = "D://test2//config//LocaElement.ini"
         if node == None:
             self.node = "RegisterElement"
         else:
@@ -15,7 +14,7 @@ class ReadIni(object):
     #加载文件
     def load_ini(self,file_name):
         cf = configparser.ConfigParser()  # 使用这个模块
-        cf.read(file_name)
+        cf.read(file_name,encoding="utf-8")
         return cf
     #获取value的值
     def get_value(self,key):
