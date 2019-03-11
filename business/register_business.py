@@ -7,8 +7,8 @@ class RegisterBusiness(object):
     def Login_email_error(self,email,name):
         self.register_h.send_user_email(email)
         self.register_h.send_user_name(name)
-        if self.register_h.send_user_text("user_email_error","请输入有效的电子邮件地址") == None:
-            print("不通过")
+        if self.register_h.send_user_text('user_email_error',"请输入有效的电子邮件地址") == None:
+            print("获取邮箱错误信息失败")
             return True
         else:
             return False
@@ -16,11 +16,13 @@ class RegisterBusiness(object):
     def Login_name_error(self,email,name):
         self.register_h.send_user_email(email)
         self.register_h.send_user_name(name)
-        if self.register_h.send_user_text("user_name_error","字符长度必须大于等于4，一个中文字算2个字符") == None:
-            print('名字校验错误')
+        if self.register_h.send_user_text('user_name_error',"字符长度必须大于等于4，一个中文字算2个字符") == None:
+            print("获取名字错误信息失败")
             return True
         else:
             return False
+    
 
+        
 
 

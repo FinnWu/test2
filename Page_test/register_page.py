@@ -19,7 +19,7 @@ class RegisterPage(object):
     def get_Login_button_element(self):
         return self.fd.get_element("user_button")
     def get_user_email_error(self):
-        return  self.fd.get_element("user_email_error")
+        return self.fd.get_element("user_email_error")
     def get_user_name_error(self):
         return self.fd.get_element("user_name_error")
 

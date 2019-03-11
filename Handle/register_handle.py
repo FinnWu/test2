@@ -16,12 +16,15 @@ class RegisterHandle(object):
     #输入验证码
     def send_code(self,code):
         self.register_p.get_code_element().send_keys(code)
-    #点击注册按钮
-    def send_login_button(self,):
-        self.register_p.get_Login_button_element().clcik()
     #获取文字信息
     def send_user_text(self,info,user_info):
         if info == 'user_email_error':
-            self.register_p.get_email_element().get_attribute('vlaue')
-        elif info == 'user_user_error':
-            self.register_p.get_name_element().get_attribute('vlaue')
+            text = self.register_p.get_user_email_error().get_attribute('textContent')
+        else:
+            text = self.register_p.get_user_name_error().get_attribute('textContent')
+
+        return text
+
+    #点击注册按钮
+    def send_login_button(self,):
+        self.register_p.get_Login_button_element().clcik()
